@@ -1,10 +1,16 @@
 import cmd
 import os
 import subprocess
-import User.UserProfile as UUP
-sd = UUP.SourceDirectory
-os.chdir(ds)
+
+# Number of times to go up in the directory structure
+levels_to_go_up = 6  # Change this to the desired number of levels
+
+# Perform multiple "cd .." operations
+for _ in range(levels_to_go_up):
+    os.chdir('..')
 print('\n'*200)
+
+
 class MyShell(cmd.Cmd):
     intro = '''========================================
     ┓ ┏  ┓                  
